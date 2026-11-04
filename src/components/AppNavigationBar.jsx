@@ -1,13 +1,13 @@
 import { HStack, Link } from "@chakra-ui/react";
 import { NavLink } from "react-router";
 
-// Relative paths: resolve to /app/cities and /app/countries
+
 const tabs = [
   { to: "cities", label: "Cities" },
   { to: "countries", label: "Countries" },
 ];
 
-// Segmented control: flat, 4px radius, colour-only transitions (DESIGN.md)
+
 function AppNavigationBar() {
   return (
     <HStack

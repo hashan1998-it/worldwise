@@ -18,14 +18,16 @@ const config = defineConfig({
         silverFog: { value: "#8E8E8E" }, // placeholders, disabled
         ash: { value: "#F4F4F4" }, // alternate light surface
       },
+      // "Twemoji Country Flags" only covers flag emojis (unicode-range),
+      // so it fixes flags on Windows without changing any other text.
       fonts: {
         heading: {
           value:
-            '-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif',
+            '"Twemoji Country Flags", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif',
         },
         body: {
           value:
-            '-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif',
+            '"Twemoji Country Flags", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif',
         },
       },
       radii: {
