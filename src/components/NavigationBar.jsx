@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Box, Flex, HStack, IconButton, Link, VStack } from "@chakra-ui/react";
 import { NavLink } from "react-router";
+import Logo from "./Logo";
 
 const links = [
   { to: "/pricing", label: "Pricing" },
@@ -68,20 +69,7 @@ function NavigationBar() {
   return (
     <Box as="nav" position="relative" px={{ base: "4", md: "10" }} py="4">
       <Flex align="center" justify="space-between" minH="48px">
-        {/* Wordmark – spaced uppercase letters, like Tesla's */}
-        <Link
-          asChild
-          color="white"
-          fontSize="lg"
-          fontWeight="500"
-          letterSpacing="0.3em"
-          textTransform="uppercase"
-          _hover={{ textDecoration: "none" }}
-        >
-          <NavLink to="/" onClick={() => setIsOpen(false)}>
-            WorldWise
-          </NavLink>
-        </Link>
+        <Logo onClick={() => setIsOpen(false)} />
 
         {/* Desktop links (md and up) */}
         <HStack
