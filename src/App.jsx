@@ -1,17 +1,18 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import HomePage from "./pages/HomePage";
 import PageNotFound from "./pages/PageNotFound";
 import Pricing from "./pages/Pricing";
 import Products from "./pages/Products";
-import AppPage from "./pages/AppPage";
+import AppLayout from "./pages/AppLayout";
 import Login from "./pages/Login";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="app" element={<AppPage />}>
+        <Route index element={<HomePage />} />
+        <Route path="app" element={<AppLayout />}>
+          <Route index element={<Navigate replace to="cities" />} />
           <Route path="cities" element={<p>Cities</p>} />
           <Route path="countries" element={<p>Countries</p>} />
           <Route path="form" element={<p>Form</p>} />

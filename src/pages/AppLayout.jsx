@@ -2,7 +2,7 @@ import { Flex } from "@chakra-ui/react";
 import Sidebar from "../components/Sidebar";
 import Map from "../components/Map";
 
-function AppPage() {
+function AppLayout() {
   return (
     <Flex
       as="main"
@@ -17,4 +17,4 @@ function AppPage() {
   );
 }
 
-export default AppPage;
+export default AppLayout;

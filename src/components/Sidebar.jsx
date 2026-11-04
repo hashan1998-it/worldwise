@@ -1,5 +1,6 @@
 import { Flex, Text } from "@chakra-ui/react";
 import Logo from "./Logo";
+import AppNavigationBar from "./AppNavigationBar";
 import { Outlet } from "react-router";
 
 function Sidebar() {
@@ -19,6 +20,8 @@ function Sidebar() {
       gap="8"
     >
       <Logo />
+
+      <AppNavigationBar />
 
       <Outlet />
 
