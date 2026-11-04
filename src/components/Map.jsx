@@ -10,7 +10,6 @@ function Map() {
       bg="graphite"
       position="relative"
     >
-      {/* The real map (Leaflet) replaces this placeholder later */}
       <Text
         position="absolute"
         top="2"

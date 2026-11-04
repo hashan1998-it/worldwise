@@ -19,7 +19,6 @@ function Sidebar() {
     >
       <Logo />
 
-      {/* AppNav + city/country lists go here in the next lectures */}
       <Text fontSize="sm" color="whiteAlpha.800">
         App navigation
       </Text>

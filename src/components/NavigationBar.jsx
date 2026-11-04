@@ -9,7 +9,6 @@ const links = [
   { to: "/login", label: "Login" },
 ];
 
-// Tesla-style nav button: 14px / 500, 4px radius, colour-only transitions
 function navItemStyles(tone) {
   const onDark = tone === "dark";
   return {
@@ -71,7 +70,6 @@ function NavigationBar() {
       <Flex align="center" justify="space-between" minH="48px">
         <Logo onClick={() => setIsOpen(false)} />
 
-        {/* Desktop links (md and up) */}
         <HStack
           as="ul"
           gap="1"
@@ -81,7 +79,6 @@ function NavigationBar() {
           <NavItems tone="dark" />
         </HStack>
 
-        {/* Mobile menu button (below md) */}
         <IconButton
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
@@ -89,8 +86,6 @@ function NavigationBar() {
           color="white"
           rounded="control"
           transition="background-color {durations.tesla}"
-          // Override the ghost variant's light-grey expanded/active fill,
-          // which made the white close icon invisible
           _hover={{ bg: "whiteAlpha.200" }}
           _active={{ bg: "whiteAlpha.300" }}
           _expanded={{ bg: "whiteAlpha.200" }}
@@ -101,9 +96,6 @@ function NavigationBar() {
         </IconButton>
       </Flex>
 
-      {/* Mobile panel – flat white, no shadow or border.
-          Absolutely positioned so it floats over the hero instead of
-          pushing the page content down. */}
       {isOpen && (
         <VStack
           as="ul"
