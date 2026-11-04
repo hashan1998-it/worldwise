@@ -1,5 +1,6 @@
 import { Flex, Text } from "@chakra-ui/react";
 import Logo from "./Logo";
+import { Outlet } from "react-router";
 
 function Sidebar() {
   return (
@@ -19,16 +20,9 @@ function Sidebar() {
     >
       <Logo />
 
-      <Text fontSize="sm" color="whiteAlpha.800">
-        App navigation
-      </Text>
+      <Outlet />
 
-      <Text
-        as="footer"
-        mt="auto"
-        fontSize="xs"
-        color="whiteAlpha.600"
-      >
+      <Text as="footer" mt="auto" fontSize="xs" color="whiteAlpha.600">
         &copy; Copyright {new Date().getFullYear()} by WorldWise Inc.
       </Text>
     </Flex>
