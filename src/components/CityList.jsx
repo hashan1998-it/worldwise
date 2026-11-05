@@ -1,9 +1,14 @@
 import { VStack } from "@chakra-ui/react";
 import CityItem from "./CityItem";
+import Loader from "./Loader";
+import ErrorMessage from "./ErrorMessage";
 
 function CityList({ cities, loading, error }) {
-  if (loading) return <p>Loading ...</p>;
-  if (error) return <p>Error</p>;
+  if (loading) return <Loader label="Loading cities..." />;
+  if (error)
+    return (
+      <ErrorMessage title="Couldn't load cities" message={error.message} />
+    );
 
   return (
     <VStack

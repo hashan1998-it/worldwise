@@ -13,7 +13,9 @@ export function useCities(url) {
           setError(null);
           const response = await fetch(url);
           if (!response.ok) {
-            throw new Error(`HTTP Error: ${response}`);
+            throw new Error(
+              `HTTP Error: ${response.status} ${response.statusText}`.trim(),
+            );
           }
           const data = await response.json();
           setCities(data);
