@@ -1,14 +1,15 @@
-import { HStack, IconButton, Text } from "@chakra-ui/react";
+import { IconButton, LinkBox, LinkOverlay, Text } from "@chakra-ui/react";
+import { Link } from "react-router";
 import { formatDate } from "../utils/formatDate";
 
-// One city row in the sidebar list. Flat surface, 4px radius,
-// colour-only hover (DESIGN.md).
 function CityItem({ city }) {
-  const { cityName, emoji, date } = city;
+  const { cityName, emoji, date, id } = city;
 
   return (
-    <HStack
+    <LinkBox
       as="li"
+      display="flex"
+      alignItems="center"
       gap="4"
       px="5"
       py="3"
@@ -16,13 +17,21 @@ function CityItem({ city }) {
       rounded="control"
       transition="background-color {durations.tesla}"
       _hover={{ bg: "whiteAlpha.200" }}
+      css={{
+        "&:has(a:focus-visible)": {
+          outline: "2px solid",
+          outlineColor: "brand.400",
+        },
+      }}
     >
       <Text as="span" fontSize="2xl" lineHeight="1" aria-hidden="true">
         {emoji}
       </Text>
 
       <Text as="h3" flex="1" fontSize="md" fontWeight="500" color="white">
-        {cityName}
+        <LinkOverlay asChild _focusVisible={{ outline: "none" }}>
+          <Link to={`${id}`}>{cityName}</Link>
+        </LinkOverlay>
       </Text>
 
       <Text as="time" dateTime={date} fontSize="sm" color="whiteAlpha.700">
@@ -35,6 +44,8 @@ function CityItem({ city }) {
         aria-label={`Delete ${cityName}`}
         size="xs"
         variant="ghost"
+        position="relative"
+        zIndex="1"
         color="whiteAlpha.700"
         rounded="control"
         transition="background-color {durations.tesla}, color {durations.tesla}"
@@ -54,7 +65,7 @@ function CityItem({ city }) {
           <path d="M6 6l12 12M18 6L6 18" />
         </svg>
       </IconButton>
-    </HStack>
+    </LinkBox>
   );
 }
 
