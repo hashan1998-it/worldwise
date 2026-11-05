@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { formatDate } from "../utils/formatDate";
 
 function CityItem({ city }) {
-  const { cityName, emoji, date, id } = city;
+  const { cityName, emoji, date, id, position } = city;
 
   return (
     <LinkBox
@@ -30,7 +30,9 @@ function CityItem({ city }) {
 
       <Text as="h3" flex="1" fontSize="md" fontWeight="500" color="white">
         <LinkOverlay asChild _focusVisible={{ outline: "none" }}>
-          <Link to={`${id}`}>{cityName}</Link>
+          <Link to={`${id}?lat=${position.lat}&lng=${position.lng}`}>
+            {cityName}
+          </Link>
         </LinkOverlay>
       </Text>
 

@@ -8,12 +8,12 @@ import Login from "./pages/Login";
 import CityList from "./components/CityList";
 import { useCities } from "./hooks/api/useCities";
 import CountryList from "./components/CountryList";
+import City from "./components/City";
 
 const BASE_URL = "http://localhost:8000";
 
 function App() {
   const { cities, error, loading } = useCities(`${BASE_URL}/cities`);
-
 
   return (
     <BrowserRouter>
@@ -27,6 +27,7 @@ function App() {
               <CityList cities={cities} loading={loading} error={error} />
             }
           />
+          <Route path="cities/:cityId" element={<City/>} />
           <Route
             path="countries"
             element={

@@ -1,6 +1,10 @@
 import { Box, Text } from "@chakra-ui/react";
+import { useSearchParams } from "react-router";
 
 function Map() {
+  const [searchParam, setSearchParam] = useSearchParams();
+  const lat = searchParam.get("lat");
+  const lng = searchParam.get("lng");
   return (
     <Box
       as="section"
@@ -18,7 +22,7 @@ function Map() {
         fontSize="xs"
         color="whiteAlpha.800"
       >
-        Map
+        {lng && lat && `Position: ${lat},${lng}`}
       </Text>
     </Box>
   );
